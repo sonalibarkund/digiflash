@@ -1,6 +1,5 @@
 import React from 'react';
 import git from '../api/git';
-
 import './Style.css';
 
 class PrList extends React.Component {
@@ -34,33 +33,21 @@ class PrList extends React.Component {
             <th>Status</th>
           </tr></thead>
           <tbody>
-
-        {pr_data_present
-          ? (this.state.pr_data.map(function(object, i){              
-              return(
-                <tr key={object.id}>
-                  <td data-label="prLink">{object.url}</td>
-                  <td data-label="author">{object.user.login}</td>
-                  <td data-label="status">{object.state}</td>
-                </tr>
-              )                
-            })
-            )       
-          : <tr> No data to display </tr>          
-        }
+            {pr_data_present
+              ? (this.state.pr_data.map(function(object, i){              
+                  return(
+                    <tr key={object.id}>
+                      <td data-label="prLink">{object.url}</td>
+                      <td data-label="author">{object.user.login}</td>
+                      <td data-label="status">{object.state}</td>
+                    </tr>
+                  )                
+                })
+                )       
+              : <tr> No data to display </tr>          
+            }
           </tbody>
         </table>
-
-
-
-        
-        {/* if (pr_data_present) {
-         
-        } else {
-          console.log("----------------")
-        } */}
-
-       
       </div>
     );
   } 
